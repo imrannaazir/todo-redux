@@ -34,7 +34,7 @@ export default function ToDo({ todo }) {
                     onChange={() => handleToggled(id)}
                     checked={completed}
                     type="checkbox"
-                    className="opacity-0 absolute rounded-full"
+                    className="opacity-0 absolute rounded-full cursor-pointer"
                 />
                 <svg
                     className={`${!completed && 'hidden'} fill-current w-3 h-3 text-green-500 pointer-events-none`}

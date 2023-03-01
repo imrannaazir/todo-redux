@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import notesImg from "../assets/images/notes.png"
 import doubleTick from "../assets/images/double-tick.png"
 import plusImg from "../assets/images/plus.png"
@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux'
 import { added, allCompleted, clearCompleted } from '../redux/todos/actions'
 
 export default function Header() {
+    const [input, setInput] = useState('')
+
     const dispatch = useDispatch()
     //handle all clear func
     const handleClearCompleted = () => {
@@ -17,12 +19,16 @@ export default function Header() {
         dispatch(allCompleted());
     };
 
+    //handle input for react controlled way
+    const handleInput = (e) => {
+        setInput(e.target.value)
+    };
+
     // handle added func
     const handleAdded = (e) => {
         e.preventDefault()
-        const todoText = e.target.text.value
-        dispatch(added(todoText));
-        e.target.reset()
+        dispatch(added(input));
+        setInput('')
     }
     return (
         <div>
@@ -35,6 +41,8 @@ export default function Header() {
                     alt="Add todo"
                 />
                 <input
+                    onChange={handleInput}
+                    value={input}
                     name="text"
                     type="text"
                     placeholder="Type your todo"
