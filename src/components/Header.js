@@ -3,7 +3,7 @@ import notesImg from "../assets/images/notes.png"
 import doubleTick from "../assets/images/double-tick.png"
 import plusImg from "../assets/images/plus.png"
 import { useDispatch } from 'react-redux'
-import { allCompleted, clearCompleted } from '../redux/todos/actions'
+import { added, allCompleted, clearCompleted } from '../redux/todos/actions'
 
 export default function Header() {
     const dispatch = useDispatch()
@@ -14,11 +14,19 @@ export default function Header() {
 
     // handle all complete func 
     const handleAllComplete = () => {
-        dispatch(allCompleted())
+        dispatch(allCompleted());
+    };
+
+    // handle added func
+    const handleAdded = (e) => {
+        e.preventDefault()
+        const todoText = e.target.text.value
+        dispatch(added(todoText));
+        e.target.reset()
     }
     return (
         <div>
-            <form
+            <form onSubmit={handleAdded}
                 className="flex items-center bg-gray-100 px-4 py-4 rounded-md"
             >
                 <img
@@ -27,6 +35,7 @@ export default function Header() {
                     alt="Add todo"
                 />
                 <input
+                    name="text"
                     type="text"
                     placeholder="Type your todo"
                     className="w-full text-lg px-4 py-1 border-none outline-none bg-gray-100 text-gray-500"

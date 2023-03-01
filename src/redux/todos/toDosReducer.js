@@ -14,7 +14,7 @@ const toDoReducer = (state = initialState, action) => {
                 ...state,
                 {
                     id: nextTodoId(state),
-                    todoText: action.payload
+                    text: action.payload
                 }
             ];
 

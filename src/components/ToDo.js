@@ -20,8 +20,8 @@ export default function ToDo({ todo }) {
 
     // handle color selected
     const handleColorSelected = (id, color) => {
-        dispatch(colorSelected(id, color))
-    }
+        dispatch(colorSelected(id, color));
+    };
 
     return (
         <div
@@ -31,7 +31,8 @@ export default function ToDo({ todo }) {
                 className="rounded-full bg-white border-2 border-gray-400 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 border-green-500 focus-within:border-green-500"
             >
                 <input
-                    onClick={() => handleToggled(id)}
+                    onChange={() => handleToggled(id)}
+                    checked={completed}
                     type="checkbox"
                     className="opacity-0 absolute rounded-full"
                 />
