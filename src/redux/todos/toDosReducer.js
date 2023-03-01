@@ -53,7 +53,6 @@ const toDoReducer = (state = initialState, action) => {
             });
 
         case CLEAR_COMPLETED:
-            console.log('clicked');
             return state.filter((todo) => !todo.completed);
         default:
             return state;
