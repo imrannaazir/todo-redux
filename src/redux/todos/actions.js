@@ -37,5 +37,5 @@ export const clearSelected = () => {
 export const allCompleted = () => {
     return {
         type: ALL_COMPLETED
-    }
-}
+    };
+};
