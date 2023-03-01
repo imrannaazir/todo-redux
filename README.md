@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Simple Todo application with React-redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Link: [Todo App](https://whimsical-panda-ae1ae6.netlify.app/).
 
 ## Available Scripts
 
