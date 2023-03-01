@@ -2,8 +2,16 @@ import React from 'react'
 import notesImg from "../assets/images/notes.png"
 import doubleTick from "../assets/images/double-tick.png"
 import plusImg from "../assets/images/plus.png"
+import { useDispatch } from 'react-redux'
+import { clearCompleted } from '../redux/todos/actions'
 
 export default function Header() {
+    const dispatch = useDispatch()
+    //handle all clear func
+    const handleClearCompleted = () => {
+        console.log('clicked');
+        dispatch(clearCompleted());
+    };
     return (
         <div>
             <form
@@ -34,7 +42,7 @@ export default function Header() {
                     />
                     <span>Complete All Tasks</span>
                 </li>
-                <li className="cursor-pointer">Clear completed</li>
+                <li onClick={handleClearCompleted} className="cursor-pointer">Clear completed</li>
             </ul>
         </div>
     )

@@ -28,7 +28,7 @@ export const colorSelected = (id, color) => {
     };
 };
 
-export const clearSelected = () => {
+export const clearCompleted = () => {
     return {
         type: CLEAR_COMPLETED
     };
